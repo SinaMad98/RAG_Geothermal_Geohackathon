@@ -1,0 +1,5 @@
+llm_model: "llama3.1:8b-instruct-q4_k_m"
+ollama_url: "http://localhost:11434"
+pdf_folder: "./data"
+chroma_db_path: "./chroma_db"
+collection_name: "well_reports"

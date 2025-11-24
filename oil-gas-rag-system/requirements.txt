@@ -3,3 +3,4 @@ langchain
 chromadb
 ollama
 pdfplumber
+pyyaml
