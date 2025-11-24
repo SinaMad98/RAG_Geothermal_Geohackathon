@@ -1,4 +1,4 @@
-fitz
+pymupdf
 langchain
 chromadb
 ollama
