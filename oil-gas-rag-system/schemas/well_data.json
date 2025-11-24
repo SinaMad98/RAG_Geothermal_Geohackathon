@@ -1,0 +1,22 @@
+{
+  "header": {
+    "well_name": "string",
+    "spud_date": "string",
+    "duration_days": "integer"
+  },
+  "specs": {
+    "casing": [
+      {
+        "size": "string",
+        "depth": "integer"
+      }
+    ],
+    "mud_weight": "float"
+  },
+  "geology": {
+    "issues": [
+      "string"
+    ],
+    "gas_peak": "string"
+  }
+}

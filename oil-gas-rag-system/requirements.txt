@@ -1,0 +1,4 @@
+fitz
+langchain
+chromadb
+ollama
