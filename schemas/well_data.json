@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Oil & Gas Well Report Data Schema",
+  "description": "Schema for extracting data from Oil & Gas Well Reports",
+  "type": "object",
+  "properties": {
+    "header": {
+      "type": "object",
+      "description": "Well header metadata information",
+      "properties": {
+        "well_name": {
+          "type": "string",
+          "description": "Name of the well"
+        },
+        "well_id": {
+          "type": "string",
+          "description": "Unique identifier for the well"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Operating company name"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "description": "Latitude coordinate"
+            },
+            "longitude": {
+              "type": "number",
+              "description": "Longitude coordinate"
+            },
+            "state": {
+              "type": "string",
+              "description": "State or province"
+            },
+            "county": {
+              "type": "string",
+              "description": "County or region"
+            }
+          }
+        },
+        "spud_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date drilling began"
+        },
+        "completion_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date well was completed"
+        }
+      },
+      "required": ["well_name", "well_id"]
+    },
+    "specs": {
+      "type": "object",
+      "description": "Well specifications and technical details",
+      "properties": {
+        "total_depth": {
+          "type": "number",
+          "description": "Total depth of the well in feet"
+        },
+        "measured_depth": {
+          "type": "number",
+          "description": "Measured depth in feet"
+        },
+        "true_vertical_depth": {
+          "type": "number",
+          "description": "True vertical depth in feet"
+        },
+        "casing": {
+          "type": "array",
+          "description": "Casing specifications",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Type of casing (e.g., surface, intermediate, production)"
+              },
+              "diameter": {
+                "type": "number",
+                "description": "Casing diameter in inches"
+              },
+              "depth": {
+                "type": "number",
+                "description": "Depth of casing in feet"
+              },
+              "weight": {
+                "type": "number",
+                "description": "Weight per foot in pounds"
+              }
+            }
+          }
+        },
+        "hole_size": {
+          "type": "number",
+          "description": "Hole size in inches"
+        },
+        "drilling_fluid_type": {
+          "type": "string",
+          "description": "Type of drilling fluid used"
+        }
+      }
+    },
+    "geology": {
+      "type": "object",
+      "description": "Geological information and formation data",
+      "properties": {
+        "formations": {
+          "type": "array",
+          "description": "List of geological formations encountered",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Formation name"
+              },
+              "top_depth": {
+                "type": "number",
+                "description": "Top of formation depth in feet"
+              },
+              "bottom_depth": {
+                "type": "number",
+                "description": "Bottom of formation depth in feet"
+              },
+              "lithology": {
+                "type": "string",
+                "description": "Primary rock type"
+              },
+              "porosity": {
+                "type": "number",
+                "description": "Porosity percentage"
+              },
+              "permeability": {
+                "type": "number",
+                "description": "Permeability in millidarcies"
+              }
+            }
+          }
+        },
+        "hydrocarbon_shows": {
+          "type": "array",
+          "description": "Hydrocarbon shows detected",
+          "items": {
+            "type": "object",
+            "properties": {
+              "depth": {
+                "type": "number",
+                "description": "Depth where show was detected"
+              },
+              "type": {
+                "type": "string",
+                "description": "Type of hydrocarbon (oil, gas, condensate)"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the show"
+              }
+            }
+          }
+        },
+        "target_formation": {
+          "type": "string",
+          "description": "Primary target formation"
+        }
+      }
+    }
+  },
+  "required": ["header", "specs", "geology"]
+}
